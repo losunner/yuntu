@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>破冰新加坡｜SEGA IX 具身智能专项 精炼海报</title>
+<style>
+  :root {
+    --navy-deep: #071228;
+    --navy-card: #0D1E3D;
+    --navy-light: #162B54;
+    --accent-blue: #2563EB;
+    --neon-green: #70B603;
+    --lime-bright: #86EFAC;
+    --text-white: #FFFFFF;
+    --text-dim: #94A3B8;
+    --text-muted: #64748B;
+    --border-color: rgba(255, 255, 255, 0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #1E293B;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    color: var(--text-white);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+  }
+  .poster {
+    width: 1080px;
+    background: linear-gradient(180deg, #060E1E 0%, #0A1730 40%, #081124 100%);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  }
+
+  /* 装饰网格背景 */
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .glow-orb-1 {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .glow-orb-2 {
+    position: absolute;
+    top: 1000px;
+    left: -150px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(112, 182, 3, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* 顶部 HEADER */
+  .poster-header {
+    padding: 60px 64px 30px;
+    position: relative;
+    z-index: 2;
+  }
+  .top-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  .logo-text {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    font-family: Georgia, serif;
+    color: #FFFFFF;
+  }
+  .tag-capsule {
+    background: rgba(112, 182, 3, 0.15);
+    border: 1px solid var(--neon-green);
+    color: #A3E635;
+    font-size: 19px;
+    font-weight: 700;
+    padding: 8px 22px;
+    border-radius: 999px;
+    letter-spacing: 0.05em;
+  }
+
+  .main-title-block {
+    position: relative;
+  }
+  .headline {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #FFFFFF 40%, #93C5FD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .sub-headline {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--neon-green);
+    letter-spacing: 0.02em;
+    margin-bottom: 28px;
+  }
+
+  /* 强痛点钩子 */
+  .hook-banner {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    border-left: 6px solid var(--accent-blue);
+    border-radius: 0 16px 16px 0;
+    padding: 24px 28px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+  }
+  .hook-banner p {
+    font-size: 21px;
+    color: #CBD5E1;
+    line-height: 1.6;
+  }
+  .hook-banner b {
+    color: #FFFFFF;
+  }
+  .hook-banner .highlight {
+    color: #60A5FA;
+    font-weight: 800;
+  }
+
+  /* 模块公用标题 */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 44px 0 24px;
+    position: relative;
+    z-index: 2;
+  }
+  .section-num {
+    width: 38px;
+    height: 38px;
+    background: var(--neon-green);
+    color: #060E1E;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    flex: none;
+  }
+  .section-title h3 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: 0.02em;
+  }
+  .section-title span {
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--text-dim);
+    margin-left: 8px;
+  }
+
+  /* 板块 1: 5 大测试环境 */
+  .scenes-grid {
+    display: grid;
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .scene-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: var(--navy-card);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 18px 24px;
+    transition: all 0.2s ease;
+  }
+  .scene-img {
+    width: 140px;
+    height: 105px;
+    flex: none;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+  }
+  .scene-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .scene-content {
+    flex: 1;
+  }
+  .scene-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .scene-tag {
+    font-size: 14px;
+    font-weight: 800;
+    color: #60A5FA;
+    background: rgba(37, 99, 235, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    padding: 2px 10px;
+    border-radius: 6px;
+  }
+  .scene-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+  .scene-desc {
+    font-size: 17.5px;
+    color: #94A3B8;
+    line-height: 1.5;
+  }
+
+  /* 板块 2: 双轨模式 (新加坡 + 柔佛/区域制造) */
+  .dual-track-box {
+    background: linear-gradient(135deg, rgba(22, 43, 84, 0.8) 0%, rgba(13, 30, 61, 0.9) 100%);
+    border: 1px solid rgba(112, 182, 3, 0.4);
+    border-radius: 20px;
+    padding: 32px 36px;
+    position: relative;
+    z-index: 2;
+    margin-top: 10px;
+  }
+  .dual-cols {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 22px;
+  }
+  .dual-col {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .dual-col b {
+    font-size: 22px;
+    color: #FFFFFF;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .dual-col span {
+    font-size: 16px;
+    color: #93C5FD;
+  }
+  .dual-divider {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--neon-green);
+  }
+  .dual-note {
+    font-size: 17.5px;
+    color: #CBD5E1;
+    line-height: 1.6;
+    border-top: 1px dashed rgba(255, 255, 255, 0.15);
+    padding-top: 18px;
+  }
+  .dual-note strong {
+    color: #FACC15;
+  }
+
+  /* 板块 3: SEGA 真实标杆成果 */
+  .case-section {
+    background: rgba(13, 30, 61, 0.6);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 32px 36px;
+    position: relative;
+    z-index: 2;
+    margin-top: 10px;
+  }
+  .case-header-text {
+    font-size: 21px;
+    color: #E2E8F0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .case-header-text b {
+    color: #A3E635;
+  }
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .case-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--neon-green);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+  .case-item h4 {
+    font-size: 19px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+  }
+  .case-item p {
+    font-size: 16px;
+    color: #94A3B8;
+    line-height: 1.45;
+  }
+  .case-item p b {
+    color: #60A5FA;
+  }
+
+  /* 板块 4: 底部限额招募与 CTA */
+  .bottom-cta-box {
+    background: linear-gradient(135deg, #112246 0%, #07152E 100%);
+    border: 2px solid var(--neon-green);
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 44px 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  }
+  .cta-info {
+    flex: 1;
+  }
+  .cta-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .badge-target {
+    background: #E11D48;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+  }
+  .badge-quota {
+    color: #A3E635;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .schedule-rows {
+    margin-bottom: 20px;
+  }
+  .schedule-row {
+    font-size: 21px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .schedule-tag-hot {
+    background: #DC2626;
+    color: #FFF;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 2px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+  }
+  .cta-fee {
+    font-size: 16.5px;
+    color: #94A3B8;
+    line-height: 1.5;
+  }
+  .cta-fee b {
+    color: #F8FAFC;
+  }
+
+  .qr-wrapper {
+    width: 220px;
+    flex: none;
+    text-align: center;
+  }
+  .qr-box {
+    background: #FFFFFF;
+    padding: 10px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    margin-bottom: 10px;
+  }
+  .qr-box img {
+    width: 200px;
+    height: 200px;
+    display: block;
+    border-radius: 8px;
+  }
+  .qr-caption {
+    font-size: 16px;
+    font-weight: 800;
+    color: #A3E635;
+    display: block;
+  }
+  .qr-sub {
+    font-size: 13.5px;
+    color: #94A3B8;
+  }
+
+  /* 极简底部声明 */
+  .poster-footer {
+    padding: 0 64px 60px;
+    text-align: center;
+    font-size: 14.5px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    padding-top: 24px;
+    position: relative;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+
+<div class="poster">
+  <div class="grid-bg"></div>
+  <div class="glow-orb-1"></div>
+  <div class="glow-orb-2"></div>
+
+  <!-- 顶部元信息 -->
+  <header class="poster-header">
+    <div class="top-meta">
+      <span class="logo-text">SEGA IX</span>
+      <span class="tag-capsule">具身智能专项营 · 新加坡</span>
+    </div>
+
+    <!-- 主标题区 -->
+    <div class="main-title-block">
+      <h1 class="headline">破冰新加坡</h1>
+      <div class="sub-headline">从技术演示，到真实场景落地</div>
+    </div>
+
+    <!-- 痛点钩子 -->
+    <div class="hook-banner">
+      <p>
+        中国企业已经在硬件制造与多模态感知上领先，但<b>海外客户不会只为“技术领先”买单</b>。<br>
+        <span class="highlight">真实场景首单验证、数据跨境合规、以及区域量产交付</span>，才是具身智能出海的生死线。
+      </p>
+    </div>
+
+    <!-- 板块 1: 5 大真实物理 AI 部署环境 -->
+    <div class="section-title">
+      <div class="section-num">1</div>
+      <h3>开放的真实物理 AI 部署环境 <span>供企业验证系统与获取首单</span></h3>
+    </div>
+
+    <div class="scenes-grid">
+      <!-- 榜鹅数码区 -->
+      <div class="scene-card">
+        <div class="scene-img"><img src="assets/deck-scene-pdd.jpg" alt="榜鹅数码区 PDD"></div>
+        <div class="scene-content">
+          <div class="scene-top">
+            <span class="scene-tag">城市级旗舰</span>
+            <span class="scene-title">榜鹅数码区 (PDD)</span>
+          </div>
+          <div class="scene-desc">新加坡旗舰级物理 AI 部署区，在共享城区内共同开发、验证与常态化运行。</div>
+        </div>
+      </div>
+
+      <!-- 国家级具身人工智能中心 -->
+      <div class="scene-card">
+        <div class="scene-img"><img src="assets/deck-scene-nrp.jpg" alt="国家级具身人工智能中心"></div>
+        <div class="scene-content">
+          <div class="scene-top">
+            <span class="scene-tag">工业级通用平台</span>
+            <span class="scene-title">国家级具身人工智能中心</span>
+          </div>
+          <div class="scene-desc">国家机器人计划 (NRP) 打造的共享工程设施，提供行业通用验证与测试能力。</div>
+        </div>
+      </div>
+
+      <!-- CHART 樟宜综合医院 -->
+      <div class="scene-card">
+        <div class="scene-img"><img src="assets/scene-hospital.jpg" alt="CHART 樟宜综合医院"></div>
+        <div class="scene-content">
+          <div class="scene-top">
+            <span class="scene-tag">医疗保健国家计划</span>
+            <span class="scene-title">CHART @ 樟宜综合医院</span>
+          </div>
+          <div class="scene-desc">医院、医生与企业联合开发，在真实临床环境中验证并推广至全岛医疗系统。</div>
+        </div>
+      </div>
+
+      <!-- 裕廊自主施工沙箱 -->
+      <div class="scene-card">
+        <div class="scene-img"><img src="assets/scene-construction.jpg" alt="裕廊集团自主施工沙箱"></div>
+        <div class="scene-content">
+          <div class="scene-top">
+            <span class="scene-tag">建筑与重工</span>
+            <span class="scene-title">裕廊集团自主施工沙箱</span>
+          </div>
+          <div class="scene-desc">在真实工地操作条件下测试自主重型设备与建筑机器人，快速切入大型商业工程。</div>
+        </div>
+      </div>
+
+      <!-- PSA 大士港 -->
+      <div class="scene-card">
+        <div class="scene-img"><img src="assets/scene-port.jpg" alt="PSA 大士港生活实验室"></div>
+        <div class="scene-content">
+          <div class="scene-top">
+            <span class="scene-tag">海事自动驾驶</span>
+            <span class="scene-title">PSA 大士港生活实验室</span>
+          </div>
+          <div class="scene-desc">全球最大全自动化集装箱码头，验证无人卡车、巡检机器人与智能港口作业。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 板块 2: 区域市场双轨模式 -->
+    <div class="section-title">
+      <div class="section-num">2</div>
+      <h3>双轨模式：兼具国际信用与量产成本 <span>依托新加坡拓展区域市场</span></h3>
+    </div>
+
+    <div class="dual-track-box">
+      <div class="dual-cols">
+        <div class="dual-col">
+          <b>新加坡</b>
+          <span>总部 · 研发 · 先进制造</span>
+        </div>
+        <div class="dual-divider">+</div>
+        <div class="dual-col">
+          <b>东盟 / 柔佛特区</b>
+          <span>大规模制造与工程落地</span>
+        </div>
+      </div>
+      <div class="dual-note">
+        借助<strong>柔佛-新加坡经济特区</strong>与巴淡自由贸易区，在 1 小时通勤半径内，兼具新加坡顶尖法治、IP 保护与东盟具有竞争力的土地与人力成本。完成验证后向<strong>东南亚、中东、日本</strong>快速复制。
+      </div>
+    </div>
+
+    <!-- 板块 3: SEGA 标杆案例 -->
+    <div class="section-title">
+      <div class="section-num">3</div>
+      <h3>真实落地标杆 <span>某上市公司旗下具身智能企业实践</span></h3>
+    </div>
+
+    <div class="case-section">
+      <div class="case-header-text">
+        协助企业构建<b>国际业务、创新人才与国际融资</b>三位一体战略架构：
+      </div>
+      <div class="case-grid">
+        <div class="case-item">
+          <h4>数百万新币补贴落地</h4>
+          <p>对接新加坡政府，加入国家级机器人计划，获<b>数百万新币</b>政策补贴。</p>
+        </div>
+        <div class="case-item">
+          <h4>NTU 顶尖院校共建</h4>
+          <p>对接 <b>NTU</b> 顶尖院校共建联合实验室，撬动本地研发与人才网络。</p>
+        </div>
+        <div class="case-item">
+          <h4>标杆客户细分场景首单</h4>
+          <p>依托产业协会与本地资源，在<b>头部客户真实场景</b>完成落地部署。</p>
+        </div>
+        <div class="case-item">
+          <h4>全球合规与资本架构</h4>
+          <p>提供 IP 与数据跨境合规方案，作为独立融资主体锚定国际投资人。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 板块 4: 底部限额招募与 CTA -->
+    <div class="bottom-cta-box">
+      <div class="cta-info">
+        <div class="cta-badge-row">
+          <span class="badge-target">限额招募 · 申请制审核</span>
+          <span class="badge-quota">每期仅限 20 席（创始人 / C-level）</span>
+        </div>
+        <div class="schedule-rows">
+          <div class="schedule-row">
+            <span>A 期：10月14日晚 – 10月16日</span>
+            <span class="schedule-tag-hot">即将开营 · 仅剩极少席位</span>
+          </div>
+          <div class="schedule-row">
+            <span>B 期：10月22日晚 – 10月24日</span>
+          </div>
+        </div>
+        <div class="cta-fee">
+          费用：RMB 30,000 / 企业·人（同企业2人 35,000）<br>
+          地点：新加坡 · 包含活动、晚宴、工作餐与考察交通
+        </div>
+      </div>
+
+      <div class="qr-wrapper">
+        <div class="qr-box">
+          <img src="assets/qr.png" alt="扫码咨询">
+        </div>
+        <span class="qr-caption">扫码提交项目申请</span>
+        <span class="qr-sub">添加项目助理微信</span>
+      </div>
+    </div>
+
+    <div class="poster-footer">
+      注：所有机构参访与落地安排以最终确认通知为准。新加坡产业与测试场信息来源于新加坡经济发展局 (EDB) 公开资料。
+    </div>
+
+  </header>
+</div>
+
+</body>
+</html>

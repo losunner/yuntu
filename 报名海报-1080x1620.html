@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEGA 破冰营九期 · 具身智能专项营｜报名海报</title>
+<style>
+  :root {
+    --navy: #0A1633;
+    --gold: #D9B25F;
+    --gold-deep: #B98F2F;
+    --gold-hair: rgba(217,178,95,0.30);
+    --dim: #A9BBD4;
+    --dim-2: #7E93B2;
+    --card: rgba(255,255,255,0.055);
+    --hair: rgba(255,255,255,0.11);
+    --tbd-bg: #FFF3D0;
+    --tbd-ink: #8A5A00;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { background: #060D1C; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    display: flex; justify-content: center;
+    -webkit-font-smoothing: antialiased;
+  }
+  .stage { position: relative; }
+  .poster {
+    width: 1080px; height: 1620px; overflow: hidden;
+    background: linear-gradient(165deg, #0A1633 0%, #122A55 46%, #0A1633 100%);
+    color: #fff;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .poster::before {
+    content: ""; position: absolute; left: -180px; top: 380px;
+    width: 900px; height: 620px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(217,178,95,0.11), rgba(217,178,95,0));
+    pointer-events: none;
+  }
+
+  /* ============ 顶部横幅 ============ */
+  .banner { height: 292px; flex: none; position: relative; overflow: hidden; }
+  .banner img {
+    width: 100%; height: 100%; display: block;
+    object-fit: cover; object-position: center 13.5%;
+  }
+  .banner::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 70px;
+    background: linear-gradient(180deg, rgba(10,22,51,0) 0%, #0A1633 100%);
+  }
+  .banner-rule {
+    height: 3px; flex: none;
+    background: linear-gradient(90deg, rgba(217,178,95,0) 0%, var(--gold) 50%, rgba(217,178,95,0) 100%);
+  }
+
+  /* ============ 钩子 ============ */
+  .hook { padding: 30px 64px 0; text-align: center; flex: none; }
+  .hook h1 {
+    font-size: 52px; font-weight: 900; line-height: 1.22; letter-spacing: -0.01em;
+  }
+  .hook h1 .g { color: var(--gold); }
+  .hook .sub { margin-top: 13px; font-size: 26px; font-weight: 700; color: var(--gold); }
+
+  /* ============ 区块 ============ */
+  .blk { padding: 0 64px; flex: none; }
+  .blk-h { display: flex; align-items: center; gap: 14px; margin-bottom: 17px; }
+  .blk-h i { width: 8px; height: 30px; border-radius: 3px; background: var(--gold); flex: none; }
+  .blk-h b { font-size: 32px; font-weight: 800; }
+  .blk-h s { text-decoration: none; font-size: 20px; color: var(--dim-2); font-weight: 600; }
+
+  /* ============ 带走什么 ============ */
+  .gains { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+  .gain {
+    background: var(--card); border: 1px solid var(--gold-hair); border-radius: 15px;
+    padding: 15px 18px 15px 72px; position: relative; min-height: 88px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .gain .n {
+    position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--gold); color: #0A1633;
+    font-size: 21px; font-weight: 900; line-height: 38px; text-align: center;
+  }
+  .gain b { font-size: 25px; font-weight: 800; line-height: 1.28; display: block; }
+  .gain span { font-size: 18px; color: var(--dim-2); margin-top: 3px; line-height: 1.32; display: block; }
+
+  /* ============ 场景 ============ */
+  .scenes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 13px; }
+  .scenes .ph { border-radius: 11px; overflow: hidden; position: relative; height: 94px; background: #14294C; }
+  .scenes .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .scenes .ph span {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: rgba(6,13,28,0.84); color: #fff;
+    font-size: 19px; font-weight: 700; text-align: center; padding: 5px 0; line-height: 1.2;
+  }
+
+  /* ============ 行程 ============ */
+  .days { display: flex; flex-direction: column; gap: 7px; }
+  .day { display: flex; align-items: center; gap: 18px; }
+  .day .d-tag {
+    flex: none; width: 154px; text-align: center;
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+    color: #0A1633; font-size: 20px; font-weight: 900;
+    border-radius: 8px; padding: 7px 0;
+  }
+  .day .d-txt { font-size: 23px; line-height: 1.25; font-weight: 700; }
+  .day .d-txt s { text-decoration: none; color: var(--dim-2); font-size: 18px; font-weight: 400; display: block; margin-top: 1px; }
+
+  /* ============ CTA ============ */
+  .cta { margin-top: auto; flex: none; padding: 22px 64px 26px; }
+  .cta-inner {
+    background: linear-gradient(135deg, rgba(217,178,95,0.15), rgba(217,178,95,0.035));
+    border: 1px solid var(--gold-hair); border-radius: 20px;
+    padding: 19px 26px; display: flex; align-items: center; gap: 26px;
+  }
+  .cta-txt { flex: 1; }
+  .cta-txt h3 { font-size: 35px; font-weight: 900; line-height: 1.2; }
+  .cta-txt h3 em { font-style: normal; color: var(--gold); }
+  .cta-meta { margin-top: 14px; display: flex; flex-direction: column; gap: 7px; }
+  .cta-meta div { font-size: 21px; color: var(--dim); }
+  .cta-meta div b { color: #fff; font-weight: 800; }
+  .cta-meta .hot {
+    display: inline-block; background: #F53F3F; color: #fff;
+    font-size: 15px; font-weight: 800; padding: 2px 7px; border-radius: 5px;
+    margin-left: 7px; vertical-align: 2px;
+  }
+  .cta-meta .who { font-size: 18px; color: var(--dim-2); line-height: 1.35; margin-top: 1px; }
+  .cta-qr { flex: none; text-align: center; }
+  .cta-qr .plate { background: #fff; border-radius: 15px; padding: 11px; display: inline-block; }
+  .cta-qr .plate img { width: 190px; height: 190px; display: block; }
+  .cta-qr .cap { font-size: 17px; color: var(--dim); margin-top: 7px; line-height: 1.3; }
+
+  .foot {
+    text-align: center; font-size: 18px; color: var(--dim-2);
+    margin-top: 13px; letter-spacing: 0.03em;
+  }
+  .foot b { color: var(--gold); font-weight: 800; letter-spacing: 0.07em; }
+
+  .tbd {
+    background: var(--tbd-bg); color: var(--tbd-ink); font-weight: 800;
+    border-bottom: 2px dashed #E0A72E; padding: 0 4px; border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+<div class="poster">
+
+  <div class="banner">
+    <img src="assets/header-orig.jpg" alt="SEGA 智能经济国际化破冰营九期">
+  </div>
+  <div class="banner-rule"></div>
+
+  <div class="hook">
+    <h1>具身智能出海<br>缺的不是一个<span class="g">「英文 Demo」</span></h1>
+    <div class="sub">2.5 天，在新加坡把落地路径先走一遍</div>
+  </div>
+
+  <div class="blk" style="margin-top:28px;">
+    <div class="blk-h"><i></i><b>2.5 天，你能带走什么</b></div>
+    <div class="gains">
+      <div class="gain">
+        <span class="n">1</span>
+        <b>一份国际化架构诊断结论</b>
+        <span>把「要不要出海」变成「先动哪一步」</span>
+      </div>
+      <div class="gain">
+        <span class="n">2</span>
+        <b>一条政策与补贴申报路径</b>
+        <span>EDB / IMDA / MAS 激励边界与入口</span>
+      </div>
+      <div class="gain">
+        <span class="n">3</span>
+        <b>1–2 个可进入的真实场景</b>
+        <span>对接已开放的物理 AI 测试环境</span>
+      </div>
+      <div class="gain">
+        <span class="n">4</span>
+        <b>一份本地伙伴与供应链名单</b>
+        <span>供应链、工程落地、渠道与资本</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk" style="margin-top:24px;">
+    <div class="blk-h"><i></i><b>真实场景已经开放</b><s>五大国家级部署环境</s></div>
+    <div class="scenes">
+      <div class="ph"><img src="assets/deck-scene-pdd.jpg" alt="榜鹅数码区"><span>榜鹅数码区</span></div>
+      <div class="ph"><img src="assets/deck-scene-nrp.jpg" alt="具身智能中心"><span>具身智能中心</span></div>
+      <div class="ph"><img src="assets/scene-hospital.jpg" alt="樟宜综合医院"><span>樟宜综合医院</span></div>
+      <div class="ph"><img src="assets/scene-construction.jpg" alt="裕廊施工沙箱"><span>裕廊施工沙箱</span></div>
+      <div class="ph"><img src="assets/scene-port.jpg" alt="PSA 大士港"><span>PSA 大士港</span></div>
+    </div>
+  </div>
+
+  <div class="blk" style="margin-top:24px;">
+    <div class="blk-h"><i></i><b>2.5 天怎么走</b></div>
+    <div class="days">
+      <div class="day">
+        <div class="d-tag">DAY 0 · 晚</div>
+        <div class="d-txt">欢迎晚宴：先把问题说清楚<s>每位参与者讲清公司、产品与国际化目标</s></div>
+      </div>
+      <div class="day">
+        <div class="d-tag">DAY 1</div>
+        <div class="d-txt">政策 · 合规 · 实体与资本架构<s>EDB / IMDA / MAS 政策全景与双重上市路径</s></div>
+      </div>
+      <div class="day">
+        <div class="d-tag">DAY 2</div>
+        <div class="d-txt">场景 · 伙伴与商业化对接<s>一对一落地诊断，把资源谈到下一步</s></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="cta-inner">
+      <div class="cta-txt">
+        <h3>扫码<em>锁定本期席位</em></h3>
+        <div class="cta-meta">
+          <div>开营时间　<b><span class="tbd">X 月 X–X 日</span></b>　·　报名截止　<b><span class="tbd">X 月 X 日</span></b></div>
+          <div>地点　<b>新加坡</b>　　时长　<b>2.5 天</b></div>
+          <div>席位　<b>限额 20 席</b><span class="hot">先到先得</span></div>
+          <div class="who">面向：具身智能 / 机器人 / 智能硬件企业的创始人 · CEO · 出海负责人</div>
+        </div>
+      </div>
+      <div class="cta-qr">
+        <div class="plate"><img src="assets/qr.png" alt="报名二维码"></div>
+        <div class="cap">长按识别 · 提交报名</div>
+      </div>
+    </div>
+    <div class="foot"><b>SEGA</b>　智能经济国际化破冰营九期　|　云图海外 Yincubator</div>
+  </div>
+
+</div>
+</div>
+
+<script>
+(function () {
+  var stage = document.querySelector('.stage');
+  var poster = document.querySelector('.poster');
+  function fit() {
+    var s = Math.min(1, window.innerWidth / 1080);
+    poster.style.transformOrigin = 'top left';
+    poster.style.transform = 'scale(' + s + ')';
+    stage.style.width = (1080 * s) + 'px';
+    stage.style.height = (1620 * s) + 'px';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+})();
+</script>
+
+</body>
+</html>

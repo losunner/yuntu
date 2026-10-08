@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SEGA 智能经济国际化破冰营第九期——具身智能专项营</title>
+<style>
+  :root {
+    --bg-dark: #020719;
+    --cyan-neon: #00E5FF;
+    --cyan-glow: #00F2FE;
+    --blue-neon: #2563EB;
+    --blue-glow: #38BDF8;
+    --text-white: #FFFFFF;
+    --text-sub: #94A3B8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #020719;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+    color: var(--text-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 海报画布 (1080 宽度，高度自然紧凑贴合内容) */
+  .poster {
+    width: 1080px;
+    background: radial-gradient(circle at 80% 15%, #0d286d 0%, #041033 40%, #020617 100%);
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 30px;
+  }
+
+  /* 背景网格与光效层 */
+  .grid-layer {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  /* 动态发光线条曲面 */
+  .cyber-curves {
+    position: absolute;
+    top: 360px;
+    right: -120px;
+    width: 950px;
+    height: 950px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.9;
+  }
+
+  /* 顶部大水印背景字 */
+  .bg-watermark {
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 125px;
+    font-weight: 900;
+    font-family: 'Arial Black', -apple-system, sans-serif;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.03);
+    -webkit-text-stroke: 1.5px rgba(0, 229, 255, 0.18);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .bg-watermark-small {
+    position: absolute;
+    top: 100px;
+    right: 80px;
+    font-size: 50px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    color: rgba(0, 229, 255, 0.22);
+    z-index: 1;
+  }
+
+  /* 顶部 LOGO 与元信息 */
+  .poster-header {
+    position: relative;
+    z-index: 2;
+    padding: 42px 70px 0;
+  }
+  .brand-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .brand-icon {
+    width: 46px;
+    height: 46px;
+    background: #FFFFFF;
+    color: #020617;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 17px;
+    font-weight: 900;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+  }
+  .brand-name {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #F8FAFC;
+  }
+  .brand-name span {
+    color: var(--cyan-neon);
+    font-weight: 600;
+    font-size: 19px;
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* 核心大标题区 */
+  .title-group {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 16px;
+  }
+  .main-title {
+    font-size: 54px;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+    background: linear-gradient(180deg, #FFFFFF 0%, #D8F5FF 40%, #52B6FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 6px 18px rgba(0, 163, 255, 0.4));
+    display: block;
+    margin-bottom: 6px;
+    white-space: nowrap;
+  }
+  .sub-title {
+    font-size: 46px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    background: linear-gradient(90deg, #00F2FE 0%, #00C0FF 50%, #4FACFE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 16px rgba(0, 242, 254, 0.4));
+  }
+
+  /* 科技像素块点缀 */
+  .pixel-deco {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    margin-bottom: 22px;
+  }
+  .pixel-box {
+    width: 20px;
+    height: 20px;
+    background: var(--cyan-neon);
+    box-shadow: 0 0 12px var(--cyan-neon);
+  }
+  .pixel-box:nth-child(even) {
+    background: #0091FF;
+  }
+
+  /* 主体内容区 */
+  .body-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 70px;
+  }
+
+  /* 悬浮 3D 机器人 */
+  .robot-container {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    width: 460px;
+    height: 460px;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .robot-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 80%);
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 35px rgba(0, 229, 255, 0.6));
+  }
+
+  /* 模块列表 */
+  .modules-list {
+    width: 530px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .module-block {
+    position: relative;
+  }
+
+  /* 青色实体胶囊标题 */
+  .module-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--cyan-neon);
+    color: #030E26;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 5px 16px;
+    border-radius: 7px;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 16px rgba(0, 229, 255, 0.45);
+  }
+
+  .module-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .module-items li {
+    font-size: 18.5px;
+    color: #E2E8F0;
+    line-height: 1.42;
+    position: relative;
+    padding-left: 20px;
+  }
+  .module-items li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: -1px;
+    color: var(--cyan-neon);
+    font-size: 22px;
+  }
+  .module-items li b {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  .module-items li .highlight {
+    color: var(--cyan-neon);
+    font-weight: 800;
+  }
+
+  /* 行程安排板块 (Day 0, Day 1, Day 2) */
+  .agenda-card {
+    width: 940px;
+    background: rgba(13, 30, 66, 0.75);
+    border: 1px solid rgba(0, 229, 255, 0.35);
+    border-radius: 18px;
+    padding: 18px 22px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    margin-top: 16px;
+  }
+  .agenda-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .agenda-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .agenda-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(0, 229, 255, 0.18);
+    border-radius: 12px;
+    padding: 13px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .agenda-badge-day {
+    display: inline-flex;
+    align-self: flex-start;
+    background: linear-gradient(90deg, #00E5FF 0%, #0077FE 100%);
+    color: #020719;
+    font-size: 12.5px;
+    font-weight: 900;
+    padding: 2px 8px;
+    border-radius: 5px;
+    letter-spacing: 0.05em;
+  }
+  .agenda-title {
+    font-size: 16.5px;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+  .agenda-desc {
+    font-size: 13.5px;
+    color: #94A3B8;
+    line-height: 1.45;
+  }
+  .agenda-desc b {
+    color: #38BDF8;
+  }
+
+  /* 标杆案例通栏卡片 */
+  .case-banner {
+    width: 940px;
+    background: rgba(13, 30, 66, 0.65);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 16px;
+    padding: 14px 20px;
+    backdrop-filter: blur(10px);
+    margin-top: 14px;
+  }
+  .case-banner-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .case-tag {
+    background: rgba(0, 229, 255, 0.15);
+    border: 1px solid var(--cyan-neon);
+    color: #00E5FF;
+    font-size: 12.5px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
+  .case-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+  .case-grid-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .case-mini-col {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    padding: 8px 10px;
+    border-left: 3px solid var(--cyan-neon);
+  }
+  .case-mini-col h5 {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 2px;
+  }
+  .case-mini-col p {
+    font-size: 12.5px;
+    color: #94A3B8;
+    line-height: 1.3;
+  }
+
+  /* 席位与排期卡片 */
+  .module-wide {
+    width: 940px;
+    background: rgba(13, 30, 66, 0.85);
+    border: 1px solid rgba(0, 229, 255, 0.35);
+    border-radius: 18px;
+    padding: 16px 22px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    margin-top: 14px;
+  }
+  .wide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .schedule-pill {
+    background: rgba(0, 229, 255, 0.08);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 10px;
+    padding: 10px 14px;
+  }
+  .schedule-title {
+    font-size: 17.5px;
+    font-weight: 800;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3px;
+  }
+  .schedule-tag-urgent {
+    background: #EF4444;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 5px;
+    letter-spacing: 0.05em;
+  }
+  .schedule-desc {
+    font-size: 14px;
+    color: #94A3B8;
+  }
+
+  /* 底部模块：极致紧凑自然衔接，杜绝多余空白 */
+  .bottom-section {
+    position: relative;
+    z-index: 3;
+    margin-top: 16px;
+    padding: 0 70px;
+  }
+  .bottom-arc-divider {
+    width: 940px;
+    height: 44px;
+    display: block;
+    margin: 0 auto 10px;
+  }
+
+  /* 底部口号区域 */
+  .poster-slogan-block {
+    margin-bottom: 14px;
+  }
+  .slogan-l1 {
+    font-size: 36px;
+    font-weight: 900;
+    color: #FFFFFF;
+    letter-spacing: 0.04em;
+    line-height: 1.22;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  }
+  .slogan-l2 {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #FFFFFF 0%, #38BDF8 60%, #00F2FE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.03em;
+    margin-top: 3px;
+  }
+
+  /* 底部时间、地点与二维码 */
+  .bottom-bar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .meta-group {
+    display: flex;
+    gap: 48px;
+  }
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .meta-script-label {
+    font-family: 'Baskerville', 'Georgia', serif;
+    font-style: italic;
+    font-size: 24px;
+    font-weight: 700;
+    color: #38BDF8;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .meta-text {
+    font-size: 16.5px;
+    font-weight: 600;
+    color: #E2E8F0;
+  }
+
+  /* 二维码卡片 */
+  .qr-box-poster {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .qr-image-wrapper {
+    width: 88px;
+    height: 88px;
+    background: #FFFFFF;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+    flex: none;
+  }
+  .qr-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 5px;
+  }
+  .qr-action-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .qr-btn-text {
+    font-size: 16.5px;
+    font-weight: 800;
+    color: var(--cyan-neon);
+    letter-spacing: 0.02em;
+  }
+  .qr-hint-text {
+    font-size: 13px;
+    color: #94A3B8;
+  }
+</style>
+</head>
+<body>
+
+<div class="poster">
+  <!-- 背景网格 -->
+  <div class="grid-layer"></div>
+
+  <!-- 背景大水印与英文标识 -->
+  <div class="bg-watermark">PHYSICAL AI</div>
+  <div class="bg-watermark-small">SEGA IX</div>
+
+  <!-- 背景 SVG 动态光弧线圈 -->
+  <svg class="cyber-curves" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="500" cy="400" r="320" stroke="url(#cyanGrad)" stroke-width="2" stroke-dasharray="8 8" opacity="0.3"/>
+    <circle cx="500" cy="400" r="380" stroke="url(#cyanGrad)" stroke-width="3" opacity="0.5"/>
+    <path d="M-50,650 C250,550 500,600 750,200" stroke="url(#cyanGrad2)" stroke-width="5" opacity="0.8" />
+    <path d="M50,750 C320,600 580,500 820,120" stroke="url(#cyanGrad)" stroke-width="3" opacity="0.6" />
+    <path d="M120,820 C380,680 620,420 850,50" stroke="url(#cyanGrad2)" stroke-width="2" opacity="0.4" />
+    <defs>
+      <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00E5FF"/>
+        <stop offset="100%" stop-color="#2563EB"/>
+      </linearGradient>
+      <linearGradient id="cyanGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#38BDF8"/>
+        <stop offset="50%" stop-color="#00F2FE"/>
+        <stop offset="100%" stop-color="#0051FF"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- 顶部元信息 -->
+  <div class="poster-header">
+    <div class="brand-bar">
+      <div class="brand-icon">云</div>
+      <div class="brand-name">SEGA IX <span>具身智能专项 · 新加坡</span></div>
+    </div>
+
+    <!-- 用户指定的主标题与副标题 -->
+    <div class="title-group">
+      <h1 class="main-title">SEGA 智能经济国际化破冰营第九期</h1>
+      <div class="sub-title">—— 具身智能专项营</div>
+      <div class="pixel-deco">
+        <div class="pixel-box"></div>
+        <div class="pixel-box"></div>
+        <div class="pixel-box"></div>
+        <div class="pixel-box"></div>
+        <div class="pixel-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主体内容 -->
+  <div class="body-content">
+    <!-- 右侧悬浮 3D 人形具身机器人与科技光圈 -->
+    <div class="robot-container">
+      <img src="assets/scifi-robot.jpg" alt="3D Physical AI Robot" class="robot-img">
+    </div>
+
+    <!-- 左侧核心板块 -->
+    <div class="modules-list">
+
+      <!-- 板块 1: 直通真实场景 -->
+      <div class="module-block">
+        <div class="module-badge">直通真实场景</div>
+        <ul class="module-items">
+          <li>拒绝纸上演练：直通新加坡 <b>5 大国家级真实环境</b></li>
+          <li><b>榜鹅数码区 (PDD)</b>：全岛智慧城区级常态运行</li>
+          <li><b>国家级中心 (NRP)</b>：工业级通用测试工程验证</li>
+          <li><b>樟宜医院 / 大士港 / 裕廊沙箱</b>：获取海外首单验证</li>
+        </ul>
+      </div>
+
+      <!-- 板块 2: 参营核心赋能 -->
+      <div class="module-block">
+        <div class="module-badge">参营核心赋能</div>
+        <ul class="module-items">
+          <li><b>数百万新币补贴对接</b>：直通政府扶持与国家机器人计划</li>
+          <li><b>NTU 顶尖共建</b>：联合实验室共建与全球研发人才网络</li>
+          <li><b>双轨量产闭环</b>：<span class="highlight">新加坡总部研发 + 柔佛特区 1小时量产</span></li>
+          <li><b>全球合规与架构</b>：IP 数据合规、独立海外融资架构设计</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- 行程板块：2.5天落地行程 (Day 0, Day 1, Day 2) -->
+    <div class="agenda-card">
+      <div class="agenda-header-row">
+        <div class="module-badge" style="margin-bottom: 0;">2.5天高密落地行程</div>
+        <span style="color: #38BDF8; font-size: 15px; font-weight: 700;">沉浸式闭门对接 · 直达决策层</span>
+      </div>
+      <div class="agenda-grid">
+        <!-- DAY 0 -->
+        <div class="agenda-item">
+          <span class="agenda-badge-day">DAY 0 · 晚</span>
+          <div class="agenda-title">破冰晚宴 · 校准目标</div>
+          <div class="agenda-desc">
+            每位创始人阐述业务与国际化诉求，合伙人深度识别痛点与差异，<b>建立 1 对 1 精准对接上下文</b>。
+          </div>
+        </div>
+
+        <!-- DAY 1 -->
+        <div class="agenda-item">
+          <span class="agenda-badge-day">DAY 1 · 全天</span>
+          <div class="agenda-title">架构先行 · 政策与实测</div>
+          <div class="agenda-desc">
+            全景对话 <b>EDB / IMDA</b> 政策激励；国际实体与 IP 合规；实地参访<b>国家级 Physical AI 测试床与产业园区</b>。
+          </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div class="agenda-item">
+          <span class="agenda-badge-day">DAY 2 · 全天</span>
+          <div class="agenda-title">落地执行 · 场景商业化</div>
+          <div class="agenda-desc">
+            剖析客户采购逻辑与市场地图；科研共建与生态对接；SEGA 合伙人<b>一对一落地诊断与资源闭环</b>。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 板块：真实标杆实践背书 -->
+    <div class="case-banner">
+      <div class="case-banner-top">
+        <span class="case-tag">标杆案例实践</span>
+        <span class="case-title">某上市公司旗下具身智能企业海外落地赋能</span>
+      </div>
+      <div class="case-grid-items">
+        <div class="case-mini-col">
+          <h5>百万政策补贴</h5>
+          <p>纳入国家级机器人计划，获高额研发政策支持</p>
+        </div>
+        <div class="case-mini-col">
+          <h5>NTU 联合研发</h5>
+          <p>对接顶尖高校共建联合实验室与技术人才网</p>
+        </div>
+        <div class="case-mini-col">
+          <h5>细分场景首单</h5>
+          <p>依托本地产业协会，在头部客户真实场景部署</p>
+        </div>
+        <div class="case-mini-col">
+          <h5>全球合规架构</h5>
+          <p>数据跨境合规，作为独立主体对接全球资本</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 板块：招募对象与席位排期 -->
+    <div class="module-wide">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <div class="module-badge" style="margin-bottom: 0;">席位与排期</div>
+        <span style="color: #38BDF8; font-size: 15.5px; font-weight: 700;">定向邀请 · 每期仅限 20 席（创始人 / C-Level）</span>
+      </div>
+      <div class="wide-grid">
+        <div class="schedule-pill">
+          <div class="schedule-title">
+            <span>A 期：10月14日晚 – 16日</span>
+            <span class="schedule-tag-urgent">仅剩极少席位</span>
+          </div>
+          <div class="schedule-desc">聚焦真实场景对接与高密闭门参访</div>
+        </div>
+        <div class="schedule-pill">
+          <div class="schedule-title">
+            <span>B 期：10月22日晚 – 24日</span>
+          </div>
+          <div class="schedule-desc">聚焦双轨制造布局与海外融资架构</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 底部模块：自然紧凑衔接 -->
+  <div class="bottom-section">
+    <!-- 弧形发光分割线 -->
+    <svg class="bottom-arc-divider" viewBox="0 0 940 44" fill="none">
+      <path d="M0,36 Q470,-4 940,36" stroke="url(#arcGlow)" stroke-width="3.5" opacity="0.9"/>
+      <path d="M0,40 Q470,0 940,40" stroke="#00E5FF" stroke-width="1.2" opacity="0.5"/>
+      <defs>
+        <linearGradient id="arcGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#0051FF" stop-opacity="0.2"/>
+          <stop offset="50%" stop-color="#00F2FE" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#0051FF" stop-opacity="0.2"/>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <!-- 底部口号区域 -->
+    <div class="poster-slogan-block">
+      <div class="slogan-l1">场景定义智能，破冰走向全球</div>
+      <div class="slogan-l2">让中国具身智能，拿下海外真实商业化首单</div>
+    </div>
+
+    <!-- 底部时间、地点与二维码 -->
+    <div class="bottom-bar">
+      <div class="meta-group">
+        <div class="meta-item">
+          <span class="meta-script-label">Time</span>
+          <span class="meta-text">2024年10月中下旬（A期/B期）</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-script-label">Add</span>
+          <span class="meta-text">新加坡 · 全程闭门落地考察</span>
+        </div>
+      </div>
+
+      <!-- 右下角二维码 -->
+      <div class="qr-box-poster">
+        <div class="qr-image-wrapper">
+          <img src="assets/qr.png" alt="报名二维码">
+        </div>
+        <div class="qr-action-text">
+          <span class="qr-btn-text">扫码提交申请</span>
+          <span class="qr-hint-text">添加项目助理微信</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

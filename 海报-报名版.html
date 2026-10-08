@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>SEGA 智能经济国际化破冰营九期 · 具身智能专项营｜报名</title>
+<style>
+  :root {
+    --primary-blue: #0B41CD;
+    --accent-blue: #165DFF;
+    --light-blue: #E8F1FF;
+    --navy-dark: #0A1633;
+    --navy-mid: #152A5E;
+    --gold: #D9B25F;
+    --theme-green: #70B603;
+    --border-gray: #E5E6EB;
+    --text-main: #1D2129;
+    --text-muted: #4E5969;
+    --text-light: #86909C;
+    --bg-page: #F7F8FA;
+    --bg-card: #FFFFFF;
+    --tbd-bg: #FFF7E0;
+    --tbd-line: #E0A72E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: #E2E8F0;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .poster-container {
+    max-width: 640px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+  }
+  img { display: block; width: 100%; height: auto; }
+
+  /* ---------- 头图 ---------- */
+  .poster-header { position: relative; }
+  .header-img { width: 100%; }
+
+  /* ---------- 通用 ---------- */
+  .section-pad { padding: 32px 20px; }
+  .border-top { border-top: 10px solid #F2F3F5; }
+
+  .title-bar { text-align: center; margin-bottom: 22px; }
+  .title-bar h2 {
+    font-size: 21px; font-weight: 800; color: var(--text-main);
+    line-height: 1.35; display: inline-block;
+  }
+  .title-bar h2.blue { color: var(--primary-blue); }
+  .title-bar .subtitle {
+    font-size: 13px; color: var(--theme-green); font-weight: 700;
+    margin-bottom: 4px; letter-spacing: 0.05em;
+  }
+  .title-bar::after {
+    content: ""; display: block; width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--theme-green));
+    margin: 10px auto 0; border-radius: 2px;
+  }
+
+  /* ---------- 1. 钩子 ---------- */
+  .hook { padding: 32px 20px 28px; text-align: center; }
+  .hook .kicker {
+    display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em;
+    color: var(--gold); background: #0A1633; padding: 4px 12px; border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .hook h1 {
+    font-size: 25px; font-weight: 900; line-height: 1.32; color: var(--navy-dark);
+    letter-spacing: -0.01em;
+  }
+  .hook h1 em { font-style: normal; color: #B07C13; }
+  .hook .sub-line {
+    font-size: 14px; color: var(--primary-blue); font-weight: 700; margin-top: 12px;
+  }
+  .hook .lede {
+    font-size: 13px; color: var(--text-muted); line-height: 1.7;
+    text-align: left; margin-top: 20px;
+    background: #F4F7FE; border-left: 4px solid var(--primary-blue);
+    border-radius: 0 12px 12px 0; padding: 14px 16px;
+  }
+  .hook .lede b { color: var(--primary-blue); }
+
+  /* ---------- 2. 四大缺口（紧凑清单） ---------- */
+  .gap-list { display: flex; flex-direction: column; gap: 0; }
+  .gap-row {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 12px 0; border-bottom: 1px dashed #E5E8EF;
+  }
+  .gap-row:last-child { border-bottom: none; }
+  .gap-row .num {
+    flex: none; width: 24px; height: 24px; border-radius: 7px;
+    background: var(--navy-dark); color: var(--gold);
+    font-size: 12.5px; font-weight: 800; line-height: 24px; text-align: center;
+    margin-top: 1px;
+  }
+  .gap-row .txt h4 { font-size: 14.5px; font-weight: 800; margin-bottom: 2px; }
+  .gap-row .txt p { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ---------- 3. 带走什么 ---------- */
+  .gains-band {
+    background: linear-gradient(135deg, #0A1633 0%, #152A5E 100%);
+    padding: 30px 20px 32px;
+  }
+  .gains-band .title-bar h2 { color: #fff; }
+  .gains-band .title-bar .subtitle { color: var(--gold); }
+  .gains-band .title-bar::after { background: linear-gradient(90deg, var(--gold), var(--theme-green)); }
+  .gains-band .band-note {
+    text-align: center; font-size: 12.5px; color: #9FB3C8; margin: -8px 0 20px;
+  }
+  .gain-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .gain-card {
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(217,178,95,0.32);
+    border-radius: 12px; padding: 14px 16px 14px 52px;
+    position: relative;
+  }
+  .gain-card .g-num {
+    position: absolute; left: 14px; top: 15px;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--gold); color: #0A1633;
+    font-size: 13px; font-weight: 900; line-height: 26px; text-align: center;
+  }
+  .gain-card h4 { font-size: 14.5px; color: #fff; font-weight: 800; margin-bottom: 3px; line-height: 1.4; }
+  .gain-card p { font-size: 12.5px; color: #B8C6DD; line-height: 1.55; }
+
+  /* ---------- 4. 为什么新加坡 ---------- */
+  .sg-list { display: grid; gap: 10px; }
+  .sg-item {
+    border: 1px solid #D6E4FF; background: #F8FAFF;
+    border-radius: 12px; padding: 14px 16px; border-left: 4px solid var(--primary-blue);
+  }
+  .sg-item h4 { font-size: 14px; font-weight: 800; color: var(--primary-blue); margin-bottom: 3px; }
+  .sg-item p { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
+  .sg-footer {
+    margin-top: 14px; text-align: center; font-size: 12.5px; font-weight: 700;
+    color: var(--navy-dark); background: #FFFBEB; border: 1px dashed var(--gold);
+    border-radius: 10px; padding: 10px 14px; line-height: 1.55;
+  }
+
+  /* ---------- 5. 五大测试场 ---------- */
+  .scene-item {
+    display: flex; gap: 12px; background: #F8FAFC; border: 1px solid #E2E8F0;
+    border-radius: 12px; padding: 10px; margin-bottom: 9px; align-items: center;
+  }
+  .scene-icon {
+    width: 60px; height: 60px; flex: none; border-radius: 9px;
+    background: #E2E8F0; overflow: hidden; display: block;
+  }
+  .scene-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .scene-info h4 { font-size: 13.5px; font-weight: 800; color: var(--text-main); line-height: 1.4; }
+  .scene-info h4 span {
+    font-size: 10.5px; color: var(--primary-blue); background: #EEF2FF;
+    padding: 1px 6px; border-radius: 4px; margin-left: 6px; font-weight: 700;
+    white-space: nowrap;
+  }
+  .scene-info p { font-size: 12px; color: var(--text-muted); line-height: 1.45; margin-top: 2px; }
+
+  /* ---------- 6. 底层支撑 ---------- */
+  .support-card {
+    border: 1px solid #ECEFF5; border-radius: 14px; padding: 16px;
+    background: #fff; box-shadow: 0 4px 16px rgba(10,22,51,0.04); margin-bottom: 12px;
+  }
+  .support-card .s-tag {
+    display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.04em;
+    color: #528602; background: #F2F9E8; padding: 2px 8px; border-radius: 5px; margin-bottom: 8px;
+  }
+  .support-card h4 { font-size: 14.5px; font-weight: 800; margin-bottom: 6px; }
+  .support-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
+  .support-card p strong { color: var(--primary-blue); font-weight: 800; }
+
+  .dual-mini {
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center;
+    background: #0A1633; border-radius: 12px; padding: 14px 12px; margin-bottom: 12px;
+  }
+  .dual-mini .dn { text-align: center; }
+  .dual-mini .dn b { display: block; font-size: 12.5px; color: #fff; line-height: 1.4; }
+  .dual-mini .dn small { font-size: 11px; color: #8FA3C4; }
+  .dual-mini .plus { font-size: 18px; font-weight: 900; color: var(--gold); }
+
+  .case-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .case-chip {
+    background: #F4F7FE; border-radius: 10px; padding: 10px 12px;
+    border-left: 3px solid var(--theme-green);
+  }
+  .case-chip b { display: block; font-size: 12.5px; font-weight: 800; color: var(--navy-dark); margin-bottom: 2px; }
+  .case-chip span { font-size: 11.5px; color: var(--text-muted); line-height: 1.45; display: block; }
+
+  /* ---------- 7. 行程 ---------- */
+  .agenda-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 16px; }
+  .agenda-strip > div { border-radius: 8px; overflow: hidden; position: relative; aspect-ratio: 4/3; background: #E2E8F0; }
+  .agenda-strip img { width: 100%; height: 100%; object-fit: cover; }
+  .agenda-strip span {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(10,22,51,0.78); color: #fff; font-size: 10px;
+    padding: 3px 0; text-align: center; font-weight: 700;
+  }
+  .tl-item { display: flex; gap: 12px; margin-bottom: 14px; }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-left { flex: none; width: 62px; }
+  .tl-badge {
+    display: inline-block; background: var(--primary-blue); color: #fff;
+    font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px;
+    letter-spacing: 0.02em; white-space: nowrap;
+  }
+  .tl-body { flex: 1; border-left: 2px solid #E8EEF9; padding-left: 14px; margin-left: 0; }
+  .tl-body h4 { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+  .tl-body ul { list-style: none; font-size: 12.5px; color: var(--text-muted); }
+  .tl-body li { position: relative; padding-left: 13px; margin-bottom: 3px; line-height: 1.5; }
+  .tl-body li::before {
+    content: ""; position: absolute; left: 0; top: 8px;
+    width: 4px; height: 4px; border-radius: 50%; background: var(--gold);
+  }
+
+  /* ---------- 8. 适合谁 / 不适合谁 ---------- */
+  .filter-box {
+    border: 2px solid var(--theme-green); border-radius: 14px; padding: 16px;
+    background: #FCFDF9; margin-bottom: 12px;
+  }
+  .filter-box.unfit { border: 1px dashed #C9CDD4; background: #F7F8FA; }
+  .filter-box h4 { font-size: 14.5px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; font-weight: 800; }
+  .filter-box.fit h4 { color: #528602; }
+  .filter-box.unfit h4 { color: #86909C; }
+  .filter-box ul { padding-left: 18px; font-size: 12.5px; color: var(--text-muted); }
+  .filter-box li { margin-bottom: 5px; line-height: 1.55; }
+  .filter-box li::marker { color: var(--theme-green); }
+
+  /* ---------- 9. 报名 CTA ---------- */
+  .cta-band { background: #0A1633; padding: 32px 20px 34px; }
+  .cta-band .cta-head { text-align: center; margin-bottom: 20px; }
+  .cta-band .cta-head .kicker {
+    display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
+    color: var(--gold); border: 1px solid rgba(217,178,95,0.45);
+    padding: 3px 12px; border-radius: 20px; margin-bottom: 12px;
+  }
+  .cta-band .cta-head h2 { font-size: 23px; font-weight: 900; color: #fff; line-height: 1.35; }
+  .cta-band .cta-head h2 em { font-style: normal; color: var(--gold); }
+  .cta-band .cta-head p { font-size: 13px; color: #9FB3C8; margin-top: 8px; }
+
+  .cta-facts {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px; padding: 14px 16px; margin-bottom: 20px;
+  }
+  .fact-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 13px; padding: 5px 0;
+  }
+  .fact-row + .fact-row { border-top: 1px dashed rgba(255,255,255,0.13); }
+  .fact-row .k { color: #8FA3C4; font-size: 12.5px; }
+  .fact-row .v { color: #fff; font-weight: 800; }
+  .fact-row .v .hot {
+    background: #F53F3F; color: #fff; font-size: 10.5px; font-weight: 800;
+    padding: 1px 6px; border-radius: 4px; margin-left: 6px; vertical-align: 1px;
+  }
+
+  .qr-wrap { text-align: center; margin-bottom: 8px; }
+  .qr-plate {
+    display: inline-block; background: #fff; border-radius: 14px; padding: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .qr-plate img { width: 168px; height: 168px; }
+  .qr-wrap .qr-cap { font-size: 12.5px; color: #9FB3C8; margin-top: 10px; }
+  .qr-wrap .qr-cap b { color: #fff; }
+
+  .cta-entries { display: grid; gap: 8px; margin-top: 20px; }
+  .entry {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 11px; padding: 12px 14px;
+  }
+  .entry .e-ico {
+    flex: none; width: 26px; height: 26px; border-radius: 8px;
+    background: rgba(217,178,95,0.18); color: var(--gold);
+    font-size: 13px; font-weight: 900; line-height: 26px; text-align: center;
+  }
+  .entry .e-txt { font-size: 12.5px; color: #C7D4E6; line-height: 1.5; }
+  .entry .e-txt b { color: #fff; display: block; font-size: 13px; font-weight: 800; margin-bottom: 1px; }
+
+  .scarcity {
+    margin-top: 18px; text-align: center; font-size: 12px; color: var(--gold);
+    border-top: 1px solid rgba(255,255,255,0.13); padding-top: 14px; line-height: 1.6;
+  }
+
+  /* ---------- 落款 ---------- */
+  .poster-footer {
+    background: #0A1633; color: #6B7F9E; font-size: 11.5px;
+    text-align: center; padding: 0 20px 32px; line-height: 1.6;
+  }
+  .poster-footer b { color: #9FB3C8; font-weight: 700; }
+
+  /* ---------- 待填标记 ---------- */
+  .tbd {
+    background: var(--tbd-bg); color: #8A5A00; font-weight: 700;
+    border-bottom: 1.5px dashed var(--tbd-line); padding: 0 3px; border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="poster-container">
+
+  <!-- ============ 0. 头图 ============ -->
+  <header class="poster-header">
+    <img src="assets/header-orig.jpg" alt="SEGA 智能经济国际化破冰营九期 · 具身智能专项营" class="header-img">
+  </header>
+
+  <!-- ============ 1. 钩子 ============ -->
+  <section class="hook">
+    <span class="kicker">SEGA IX · 具身智能专项营</span>
+    <h1>具身智能出海，<br>缺的不是一个 <em>英文 Demo</em></h1>
+    <div class="sub-line">2.5 天，在新加坡把落地路径先走一遍</div>
+
+    <p class="lede">
+      2026 年，具身智能的竞争已从实验室演示转向真实场景。中国企业已经在硬件制造、运动控制与多模态感知上形成优势，但<b>海外客户不会只为「技术领先」本身买单</b>。他们检验的是：数据能否合规流动、产品能否进入国际场景、组织能否本地交付、资本架构能否支撑下一阶段增长。
+    </p>
+  </section>
+
+  <!-- ============ 2. 四大缺口 ============ -->
+  <section class="section-pad border-top">
+    <div class="title-bar">
+      <div class="subtitle">技术领先，不自动等于海外落地</div>
+      <h2>具身智能时代的四大结构性缺口</h2>
+    </div>
+
+    <div class="gap-list">
+      <div class="gap-row">
+        <span class="num">1</span>
+        <div class="txt">
+          <h4>数据缺口</h4>
+          <p>缺乏大规模、真实世界的多模态交互数据，模型泛化与迭代在海外场景容易受阻。</p>
+        </div>
+      </div>
+      <div class="gap-row">
+        <span class="num">2</span>
+        <div class="txt">
+          <h4>合规缺口</h4>
+          <p>地缘政治与数据主权格局下，数据采集与跨境交易的合规能力已成为核心准入门槛。</p>
+        </div>
+      </div>
+      <div class="gap-row">
+        <span class="num">3</span>
+        <div class="txt">
+          <h4>高价值场景缺口</h4>
+          <p>机场、港口、物流、制造门槛高、采购周期长。没有本地验证与背书，很难破冰首单。</p>
+        </div>
+      </div>
+      <div class="gap-row">
+        <span class="num">4</span>
+        <div class="txt">
+          <h4>国际化实质缺口</h4>
+          <p>停留在「出海尝试」阶段，海外产权与独立运营体系无法获得国际认可，直接影响融资。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. 2.5 天你能带走什么 ============ -->
+  <section class="gains-band">
+    <div class="title-bar">
+      <div class="subtitle">不是听一场出海分享</div>
+      <h2>2.5 天，你能带走这四样东西</h2>
+    </div>
+    <p class="band-note">SEGA 合伙人 + 政策机构 + 产业方，围绕你公司的真实情况现场推演</p>
+
+    <div class="gain-grid">
+      <div class="gain-card">
+        <span class="g-num">1</span>
+        <h4>一份针对你公司的国际化架构诊断结论</h4>
+        <p>现场一对一，把「要不要出海」变成「先动哪一步」。</p>
+      </div>
+      <div class="gain-card">
+        <span class="g-num">2</span>
+        <h4>一条明确的政策与补贴申报路径</h4>
+        <p>EDB / IMDA / MAS 激励边界，以及国家级机器人计划的申请入口。</p>
+      </div>
+      <div class="gain-card">
+        <span class="g-num">3</span>
+        <h4>1–2 个可进入的真实场景入口</h4>
+        <p>对接新加坡已开放的物理 AI 测试环境，绕开漫长冷启动。</p>
+      </div>
+      <div class="gain-card">
+        <span class="g-num">4</span>
+        <h4>一份现场对接的本地伙伴名单</h4>
+        <p>供应链、工程落地、渠道与资本，谈完就能约下一步。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. 为什么是新加坡 ============ -->
+  <section class="section-pad border-top">
+    <div class="title-bar">
+      <div class="subtitle">为什么是新加坡</div>
+      <h2>中国具身智能建立全球可信度的第一块试金石</h2>
+    </div>
+
+    <div class="sg-list">
+      <div class="sg-item">
+        <h4>可信锚点</h4>
+        <p>华语环境、覆盖全球的税收协定网络与成熟的国际总部生态，利于搭建控股、研发与区域运营架构，海外主体与 IP 一次理清。</p>
+      </div>
+      <div class="sg-item">
+        <h4>真实场景开放</h4>
+        <p>国家级测试床、公立医院、在建工地与全自动港口都在对外开放验证，产品能在规模化前拿到真实背书。</p>
+      </div>
+      <div class="sg-item">
+        <h4>成本腹地只有一个小时</h4>
+        <p>柔佛—新加坡经济特区与巴淡—民丹自贸区在手，1 小时通勤半径内同时握有顶尖营商信用与东盟低成本产能。</p>
+      </div>
+    </div>
+
+    <div class="sg-footer">
+      新加坡不是终点，而是中国具身智能企业建立全球可信度的第一块试金石。
+    </div>
+  </section>
+
+  <!-- ============ 5. 五大真实部署环境 ============ -->
+  <section class="section-pad border-top">
+    <div class="title-bar">
+      <div class="subtitle">找场景 · 找伙伴 · 找市场</div>
+      <h2>新加坡开放的真实物理 AI 部署环境</h2>
+    </div>
+
+    <div class="scene-item">
+      <div class="scene-icon"><img src="assets/deck-scene-pdd.jpg" alt="榜鹅数码区 PDD"></div>
+      <div class="scene-info">
+        <h4>榜鹅数码区 PDD <span>城市旗舰</span></h4>
+        <p>共享城市区域内共同开发、验证与运行机器人系统。</p>
+      </div>
+    </div>
+    <div class="scene-item">
+      <div class="scene-icon"><img src="assets/deck-scene-nrp.jpg" alt="国家级具身人工智能中心"></div>
+      <div class="scene-info">
+        <h4>国家级具身人工智能中心 <span>工业级验证</span></h4>
+        <p>国家机器人计划 NRP 打造的共享工程设施与具身系统验证能力。</p>
+      </div>
+    </div>
+    <div class="scene-item">
+      <div class="scene-icon"><img src="assets/scene-hospital.jpg" alt="CHART 樟宜综合医院"></div>
+      <div class="scene-info">
+        <h4>CHART @ 樟宜综合医院 <span>医疗国家级</span></h4>
+        <p>医院、临床医生与企业共同开发验证医疗机器人，并在全岛推广。</p>
+      </div>
+    </div>
+    <div class="scene-item">
+      <div class="scene-icon"><img src="assets/scene-construction.jpg" alt="裕廊集团自主施工沙箱"></div>
+      <div class="scene-info">
+        <h4>裕廊集团自主施工沙箱 <span>建筑施工</span></h4>
+        <p>真实工地条件下测试自主重型设备，快速进入大型商业工程。</p>
+      </div>
+    </div>
+    <div class="scene-item">
+      <div class="scene-icon"><img src="assets/scene-port.jpg" alt="PSA 大士港生活实验室"></div>
+      <div class="scene-info">
+        <h4>PSA 大士港生活实验室 <span>海事自动驾驶</span></h4>
+        <p>全球最大全自动集装箱港，验证无人卡车与自主巡检机器人。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. 底层支撑 ============ -->
+  <section class="section-pad border-top">
+    <div class="title-bar">
+      <div class="subtitle">不是纸上谈兵</div>
+      <h2>已有企业在这里把架构搭完并落了地</h2>
+    </div>
+
+    <div class="support-card">
+      <span class="s-tag">产业链生态</span>
+      <h4>上下游已在新加坡完成本地化</h4>
+      <p>从数据与仿真基础设施（Intrinsic、Lightwheel）、跨形态具身模型（FieldAI、MindOn），到先进计算、灵巧手触觉与精密制造，具身智能的完整链条都能在本地找到交付方。</p>
+    </div>
+
+    <div class="dual-mini">
+      <div class="dn">
+        <b>总部 · 研发<br>先进制造</b>
+        <small>布局新加坡</small>
+      </div>
+      <div class="plus">+</div>
+      <div class="dn">
+        <b>大规模制造<br>与工程落地</b>
+        <small>布局东盟与印度</small>
+      </div>
+    </div>
+
+    <div class="case-strip">
+      <div class="case-chip">
+        <b>政策补贴</b>
+        <span>加入国家级机器人计划，获数百万新币支持</span>
+      </div>
+      <div class="case-chip">
+        <b>院校共建</b>
+        <span>对接 NTU 共建研发合作实验室</span>
+      </div>
+      <div class="case-chip">
+        <b>场景落地</b>
+        <span>头部客户细分场景成功部署</span>
+      </div>
+      <div class="case-chip">
+        <b>合规安排</b>
+        <span>IP 与数据跨境合规方案</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. 行程 ============ -->
+  <section class="section-pad border-top">
+    <div class="title-bar">
+      <div class="subtitle">行程安排</div>
+      <h2>SEGA IX · 2.5 天怎么走</h2>
+    </div>
+
+    <div class="agenda-strip">
+      <div><img src="assets/day0-photo.jpg" alt="欢迎晚宴"><span>DAY 0 晚宴</span></div>
+      <div><img src="assets/day1-photo1.jpg" alt="Day 1 政策对话"><span>DAY 1 政策</span></div>
+      <div><img src="assets/day2-photo.jpg" alt="Day 2 落地对接"><span>DAY 2 对接</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><span class="tl-badge">DAY 0 · 晚</span></div>
+      <div class="tl-body">
+        <h4>欢迎晚宴：先把问题说清楚</h4>
+        <ul>
+          <li>每位参与者讲清公司、产品与国际化目标。</li>
+          <li>合伙人据此识别共性问题与个体差异，为后续对接建立上下文。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><span class="tl-badge">DAY 1</span></div>
+      <div class="tl-body">
+        <h4>架构先行：合规、实体与资本</h4>
+        <ul>
+          <li>EDB / IMDA / MAS / GFTN 政策激励边界全景对话</li>
+          <li>国际实体与 IP 合规梳理</li>
+          <li>SGX + 纳斯达克双重上市路径</li>
+          <li>参访国家级 Physical AI 测试床与产业园区</li>
+          <li>SEGA × OpenAI 算力协同支持</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><span class="tl-badge">DAY 2</span></div>
+      <div class="tl-body">
+        <h4>落地执行：场景、伙伴与商业化</h4>
+        <ul>
+          <li>把视角从「新加坡有什么」转回「你公司该怎么做」。</li>
+          <li>科研合作、核心团队、市场地图与客户采购逻辑放进同一张图。</li>
+          <li>一对一落地诊断与资源对接。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. 适合谁 / 不适合谁 ============ -->
+  <section class="section-pad border-top">
+    <div class="title-bar">
+      <div class="subtitle">先看是否对得上</div>
+      <h2>这一期适合谁，不适合谁</h2>
+    </div>
+
+    <div class="filter-box fit">
+      <h4>适合</h4>
+      <ul>
+        <li>已有成型产品、正在评估或已启动国际化路径的具身智能 / 机器人 / 智能硬件企业</li>
+        <li>创始人、CEO 或海外业务负责人——能拍板、也能带团队落地的人</li>
+        <li>对新加坡架构、政策补贴或海外场景准入有具体计划的团队</li>
+      </ul>
+    </div>
+
+    <div class="filter-box unfit">
+      <h4>不适合</h4>
+      <ul>
+        <li>仍处在概念或 Demo 阶段、暂无国际化规划的团队</li>
+        <li>只想听行业分享、不准备推进落地的个人</li>
+        <li>期望在现场直接拿到订单或确定投资的人</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 9. 报名 CTA ============ -->
+  <section class="cta-band">
+    <div class="cta-head">
+      <span class="kicker">九期 · 具身智能专项营</span>
+      <h2>扫码<em>锁定本期席位</em></h2>
+      <p>限额 20 席，按报名先后与匹配度确认</p>
+    </div>
+
+    <div class="cta-facts">
+      <div class="fact-row">
+        <span class="k">开营时间</span>
+        <span class="v"><span class="tbd">待填：2026 年 X 月 X–X 日</span></span>
+      </div>
+      <div class="fact-row">
+        <span class="k">地点</span>
+        <span class="v">新加坡 · 2.5 天</span>
+      </div>
+      <div class="fact-row">
+        <span class="k">席位</span>
+        <span class="v">限额 20 席<span class="hot">先到先得</span></span>
+      </div>
+      <div class="fact-row">
+        <span class="k">报名截止</span>
+        <span class="v"><span class="tbd">待填：X 月 X 日</span></span>
+      </div>
+    </div>
+
+    <div class="qr-wrap">
+      <div class="qr-plate">
+        <img src="assets/qr.png" alt="SEGA 破冰营九期报名二维码">
+      </div>
+      <div class="qr-cap">长按识别二维码，<b>直接提交报名信息</b></div>
+    </div>
+
+    <div class="cta-entries">
+      <div class="entry">
+        <span class="e-ico">1</span>
+        <div class="e-txt">
+          <b>想先看完整议程</b>
+          扫码后备注「议程」，我们把 2.5 天逐项安排发给你
+        </div>
+      </div>
+      <div class="entry">
+        <span class="e-ico">2</span>
+        <div class="e-txt">
+          <b>不确定适不适合 / 需要一对一评估</b>
+          添加顾问微信，先聊 15 分钟再决定（微信号：<span class="tbd">待填</span>）
+        </div>
+      </div>
+    </div>
+
+    <div class="scarcity">
+      每期限额 20 席，额满即止 · 报名后由 SEGA 合伙人确认席位
+    </div>
+  </section>
+
+  <!-- ============ 落款 ============ -->
+  <footer class="poster-footer">
+    <b>SEGA</b> · Smart Economy Globalization Acceleration　|　云图海外 Yincubator
+  </footer>
+
+</div>
+
+</body>
+</html>
