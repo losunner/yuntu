@@ -437,6 +437,46 @@
     position: relative;
     z-index: 2;
   }
+  /* 板块 4: 2.5天行程卡片 */
+  .agenda-a-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .agenda-a-card {
+    background: var(--navy-card);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--neon-green);
+    border-radius: 14px;
+    padding: 20px 22px;
+  }
+  .agenda-a-badge {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #060E1E;
+    background: var(--neon-green);
+    padding: 3px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+  .agenda-a-card h4 {
+    font-size: 19px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+  .agenda-a-card p {
+    font-size: 15.5px;
+    color: #94A3B8;
+    line-height: 1.5;
+  }
+  .agenda-a-card p b {
+    color: #60A5FA;
+  }
 </style>
 </head>
 <body>
@@ -588,7 +628,31 @@
       </div>
     </div>
 
-    <!-- 板块 4: 底部限额招募与 CTA -->
+    <!-- 板块 4: 2.5天高密落地行程安排 -->
+    <div class="section-title">
+      <div class="section-num">4</div>
+      <h3>2.5 天高密落地行程安排 <span>沉浸式闭门对接 · 直达决策层</span></h3>
+    </div>
+
+    <div class="agenda-a-grid">
+      <div class="agenda-a-card">
+        <span class="agenda-a-badge">DAY 0 · 晚</span>
+        <h4>破冰晚宴 · 校准目标</h4>
+        <p>每位参与者讲述公司、产品与国际化目标，SEGA 合伙人据此识别共性问题与个体差异，<b>建立 1 对 1 精准对接上下文</b>。</p>
+      </div>
+      <div class="agenda-a-card">
+        <span class="agenda-a-badge">DAY 1 · 全天</span>
+        <h4>架构先行 · 政策、合规与实测</h4>
+        <p>全景对话 <b>EDB / IMDA / MAS</b> 政策激励边界；国际实体与 IP 合规梳理；实地参访<b>新加坡国家级 Physical AI 测试床与产业园区</b>。</p>
+      </div>
+      <div class="agenda-a-card">
+        <span class="agenda-a-badge">DAY 2 · 全天</span>
+        <h4>落地执行 · 场景、伙伴与商业化</h4>
+        <p>剖析客户采购逻辑与市场地图；科研合作与生态资源对接；SEGA 合伙人与企业高管完成<b>一对一落地诊断与资源闭环</b>。</p>
+      </div>
+    </div>
+
+    <!-- 板块 5: 底部限额招募与 CTA -->
     <div class="bottom-cta-box">
       <div class="cta-info">
         <div class="cta-badge-row">

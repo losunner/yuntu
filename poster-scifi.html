@@ -26,13 +26,13 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* 海报画布 (1080 宽度，高度自然紧凑贴合内容) */
+  /* 海报画布 */
   .poster {
     width: 1080px;
     background: radial-gradient(circle at 80% 15%, #0d286d 0%, #041033 40%, #020617 100%);
     position: relative;
     overflow: hidden;
-    padding-bottom: 30px;
+    padding-bottom: 35px;
   }
 
   /* 背景网格与光效层 */
@@ -409,7 +409,7 @@
     color: #94A3B8;
   }
 
-  /* 底部模块：极致紧凑自然衔接，杜绝多余空白 */
+  /* 底部模块：口号与二维码并排对齐，极简紧凑 */
   .bottom-section {
     position: relative;
     z-index: 3;
@@ -418,17 +418,25 @@
   }
   .bottom-arc-divider {
     width: 940px;
-    height: 44px;
+    height: 38px;
     display: block;
-    margin: 0 auto 10px;
+    margin: 0 auto 12px;
   }
 
-  /* 底部口号区域 */
+  /* 底部口号 + 右侧二维码 并排并列 */
+  .slogan-qr-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
   .poster-slogan-block {
-    margin-bottom: 14px;
+    flex: 1;
   }
   .slogan-l1 {
-    font-size: 36px;
+    font-size: 34px;
     font-weight: 900;
     color: #FFFFFF;
     letter-spacing: 0.04em;
@@ -436,44 +444,13 @@
     text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
   }
   .slogan-l2 {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 800;
     background: linear-gradient(90deg, #FFFFFF 0%, #38BDF8 60%, #00F2FE 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 0.03em;
-    margin-top: 3px;
-  }
-
-  /* 底部时间、地点与二维码 */
-  .bottom-bar {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-  }
-  .meta-group {
-    display: flex;
-    gap: 48px;
-  }
-  .meta-item {
-    display: flex;
-    flex-direction: column;
-  }
-  .meta-script-label {
-    font-family: 'Baskerville', 'Georgia', serif;
-    font-style: italic;
-    font-size: 24px;
-    font-weight: 700;
-    color: #38BDF8;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .meta-text {
-    font-size: 16.5px;
-    font-weight: 600;
-    color: #E2E8F0;
+    margin-top: 4px;
   }
 
   /* 二维码卡片 */
@@ -481,34 +458,39 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    padding: 10px 14px;
+    border-radius: 14px;
+    flex: none;
   }
   .qr-image-wrapper {
-    width: 88px;
-    height: 88px;
+    width: 82px;
+    height: 82px;
     background: #FFFFFF;
-    padding: 5px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+    padding: 4px;
+    border-radius: 8px;
+    box-shadow: 0 0 16px rgba(0, 229, 255, 0.4);
     flex: none;
   }
   .qr-image-wrapper img {
     width: 100%;
     height: 100%;
     display: block;
-    border-radius: 5px;
+    border-radius: 4px;
   }
   .qr-action-text {
     display: flex;
     flex-direction: column;
   }
   .qr-btn-text {
-    font-size: 16.5px;
+    font-size: 16px;
     font-weight: 800;
     color: var(--cyan-neon);
     letter-spacing: 0.02em;
   }
   .qr-hint-text {
-    font-size: 13px;
+    font-size: 12.5px;
     color: #94A3B8;
   }
 </style>
@@ -685,12 +667,12 @@
 
   </div>
 
-  <!-- 底部模块：自然紧凑衔接 -->
+  <!-- 底部模块：口号与二维码并列排版 -->
   <div class="bottom-section">
     <!-- 弧形发光分割线 -->
-    <svg class="bottom-arc-divider" viewBox="0 0 940 44" fill="none">
-      <path d="M0,36 Q470,-4 940,36" stroke="url(#arcGlow)" stroke-width="3.5" opacity="0.9"/>
-      <path d="M0,40 Q470,0 940,40" stroke="#00E5FF" stroke-width="1.2" opacity="0.5"/>
+    <svg class="bottom-arc-divider" viewBox="0 0 940 38" fill="none">
+      <path d="M0,32 Q470,-4 940,32" stroke="url(#arcGlow)" stroke-width="3.5" opacity="0.9"/>
+      <path d="M0,36 Q470,0 940,36" stroke="#00E5FF" stroke-width="1.2" opacity="0.5"/>
       <defs>
         <linearGradient id="arcGlow" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stop-color="#0051FF" stop-opacity="0.2"/>
@@ -700,26 +682,14 @@
       </defs>
     </svg>
 
-    <!-- 底部口号区域 -->
-    <div class="poster-slogan-block">
-      <div class="slogan-l1">场景定义智能，破冰走向全球</div>
-      <div class="slogan-l2">让中国具身智能，拿下海外真实商业化首单</div>
-    </div>
-
-    <!-- 底部时间、地点与二维码 -->
-    <div class="bottom-bar">
-      <div class="meta-group">
-        <div class="meta-item">
-          <span class="meta-script-label">Time</span>
-          <span class="meta-text">2024年10月中下旬（A期/B期）</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-script-label">Add</span>
-          <span class="meta-text">新加坡 · 全程闭门落地考察</span>
-        </div>
+    <!-- 底部口号与二维码并列 -->
+    <div class="slogan-qr-row">
+      <div class="poster-slogan-block">
+        <div class="slogan-l1">场景定义智能，破冰走向全球</div>
+        <div class="slogan-l2">让中国具身智能，拿下海外真实商业化首单</div>
       </div>
 
-      <!-- 右下角二维码 -->
+      <!-- 右侧二维码 -->
       <div class="qr-box-poster">
         <div class="qr-image-wrapper">
           <img src="assets/qr.png" alt="报名二维码">
